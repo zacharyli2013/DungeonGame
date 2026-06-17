@@ -1,0 +1,764 @@
+(NOTE: This is the initial prompt I entered into Cline, generated completely by ChatGPT with my game ideas.
+Later edits were made, including a lot of the game mechanics, so this is not a complete doc on the game.
+Some edits were made from my ideas to AI, and some just manually because AI isn't perfect.
+This is just here for the record, if anyone else wants some ideas.)
+
+========================================
+ESCAPE THE DUNGEON
+Python Console Game
+Version 1 Design Document
+========================================
+
+OVERVIEW
+--------
+Escape the Dungeon is a turn-based dungeon crawler made entirely in Python and played through the console.
+
+The player progresses through ten floors of a dungeon, choosing paths and making decisions to survive and become stronger. The goal is to defeat the Cave King on Floor 10 and escape.
+
+The game is based around risk versus reward.
+
+Fight stronger enemies to become more powerful, or rest and recover to stay alive.
+
+There are no graphics in V1. Everything is text-based.
+
+
+========================================
+GOAL
+========================================
+
+Reach Floor 10 and defeat the Cave King.
+
+Win Condition:
+- Defeat the Cave King.
+
+Lose Condition:
+- HP reaches 0.
+
+
+========================================
+PLAYER STATS
+========================================
+
+HP
+Health Points.
+If HP reaches 0, the player dies.
+
+Gold (G)
+Currency used at Merchants.
+
+STR
+Strength.
+Used to calculate damage.
+
+DEF
+Defense.
+Reduces incoming damage.
+
+Weapon
+The player's currently equipped weapon.
+
+Inventory
+Contains consumable items.
+
+Maximum inventory size:
+5 items.
+
+
+========================================
+STARTING PLAYER
+========================================
+
+HP: 10/10
+
+Gold: 0G
+
+STR: 2
+
+DEF: 2
+
+Weapon:
+Training Sword (+0 to 2 damage)
+
+Inventory:
+Health Potion x1
+
+
+========================================
+WEAPONS
+========================================
+
+Training Sword
+Damage Bonus:
++0 to +2
+
+----------------------
+
+Sturdy Axe
+Damage Bonus:
++2 to +4
+
+----------------------
+
+Knight's Blade
+Damage Bonus:
++4 to +6
+
+----------------------
+
+Magic Staff
+Damage Bonus:
++3 to +8
+
+----------------------
+
+Excalibur
+Damage Bonus:
++8 to +10
+
+Can only be obtained after defeating the Cave King.
+
+
+========================================
+BATTLE SYSTEM
+========================================
+
+Battles are turn-based.
+
+Player turn first.
+
+Then enemy turn.
+
+Player actions:
+
+1. Attack
+
+2. Special
+
+3. Item
+
+
+========================================
+ATTACK
+========================================
+
+Damage Formula:
+
+Damage =
+STR
++ random weapon damage bonus
+- enemy DEF
+
+Minimum damage should always be at least 1.
+
+Example:
+
+Player STR = 5
+
+Weapon roll = +3
+
+Enemy DEF = 2
+
+Damage = 6
+
+
+========================================
+SPECIAL
+========================================
+
+50% chance:
+
+Damage =
+STR × 3
+
+Weapon bonus is NOT added.
+
+50% chance:
+
+Missed!
+
+Deals no damage.
+
+
+========================================
+ITEMS DURING BATTLE
+========================================
+
+Items can be used during battle.
+
+Using an item consumes one turn.
+
+
+========================================
+INVENTORY ITEMS
+========================================
+
+Health Potion
+
+Effect:
+Restore 25% of max HP.
+
+--------------------------------
+
+Sleeping Gas
+
+67% success:
+
+Enemy falls asleep.
+
+Player immediately gets two additional actions.
+
+33% failure:
+
+Enemy resists.
+
+Nothing happens.
+
+--------------------------------
+
+Grenade
+
+67% success:
+
+Enemy loses 25% of current HP.
+
+33% failure:
+
+Player loses 25% of current HP.
+
+--------------------------------
+
+Golden Apple
+
+Restore 75% of max HP.
+
+
+========================================
+FLOOR STRUCTURE
+========================================
+
+There are ten floors.
+
+Floor 10 only contains the boss.
+
+Player chooses one path on each floor.
+
+Some floors contain Rest Sites and Merchants.
+
+Most floors only contain combat.
+
+
+========================================
+FLOOR 1
+========================================
+
+Tutorial Floor
+
+Paths:
+
+Normal Enemy
+
+
+========================================
+FLOOR 2
+========================================
+
+Paths:
+
+Normal Enemy
+
+Elite Enemy
+
+
+========================================
+FLOOR 3
+========================================
+
+Paths:
+
+Normal Enemy
+
+Rest Site
+
+
+========================================
+FLOOR 4
+========================================
+
+Paths:
+
+Normal Enemy
+
+Elite Enemy
+
+
+========================================
+FLOOR 5
+========================================
+
+Paths:
+
+Normal Enemy
+
+Merchant
+
+
+========================================
+FLOOR 6
+========================================
+
+Paths:
+
+Normal Enemy
+
+Elite Enemy
+
+Rest Site
+
+
+========================================
+FLOOR 7
+========================================
+
+Paths:
+
+Normal Enemy
+
+Elite Enemy
+
+
+========================================
+FLOOR 8
+========================================
+
+Paths:
+
+Normal Enemy
+
+Merchant
+
+Rest Site
+
+
+========================================
+FLOOR 9
+========================================
+
+Paths:
+
+Normal Enemy
+
+Elite Enemy
+
+Merchant
+
+
+========================================
+FLOOR 10
+========================================
+
+Boss Room
+
+Path:
+
+Cave King
+
+
+========================================
+NORMAL ENEMIES
+========================================
+
+Normal enemies are safer.
+
+Rewards:
+
+5-10 Gold
+
+20% item drop chance
+
+After victory:
+
+Choose ONE reward:
+
++2 Max HP
+
++1 STR
+
++1 DEF
+
+
+========================================
+ELITE ENEMIES
+========================================
+
+Elite enemies are harder.
+
+Rewards:
+
+15-25 Gold
+
+75% item drop chance
+
+After victory:
+
+Choose ONE reward:
+
++4 Max HP
+
++2 STR
+
++2 DEF
+
+
+========================================
+REST SITE
+========================================
+
+Player chooses ONE option.
+
+Sleep
+
+Restore HP to full.
+
+OR
+
+Train
+
+Gain:
+
++1 STR
+
+or
+
++1 DEF
+
+No healing.
+
+
+========================================
+MERCHANT
+========================================
+
+Items available:
+
+Health Potion
+10G
+
+----------------
+
+Sleeping Gas
+20G
+
+----------------
+
+Grenade
+20G
+
+----------------
+
+Golden Apple
+50G
+
+----------------
+
+Sturdy Axe
+30G
+
+----------------
+
+Knight's Blade
+60G
+
+----------------
+
+Magic Staff
+75G
+
+Excalibur cannot be purchased.
+
+
+========================================
+ENEMY ROSTER
+========================================
+
+RAT
+
+HP: 8
+
+STR: 2
+
+DEF: 1
+
+Gold Reward:
+5G
+
+Drop Chance:
+15%
+
+--------------------------------
+
+GOBLIN
+
+HP: 12
+
+STR: 3
+
+DEF: 2
+
+Gold Reward:
+10G
+
+Drop Chance:
+20%
+
+--------------------------------
+
+SKELETON
+
+HP: 20
+
+STR: 5
+
+DEF: 3
+
+Gold Reward:
+15G
+
+Drop Chance:
+20%
+
+--------------------------------
+
+ORC
+
+HP: 30
+
+STR: 8
+
+DEF: 5
+
+Gold Reward:
+20G
+
+Drop Chance:
+20%
+
+
+========================================
+ELITE ENEMIES
+========================================
+
+GOBLIN CAPTAIN
+
+HP: 20
+
+STR: 5
+
+DEF: 3
+
+Gold Reward:
+20G
+
+Drop Chance:
+75%
+
+--------------------------------
+
+SKELETON KNIGHT
+
+HP: 30
+
+STR: 7
+
+DEF: 4
+
+Gold Reward:
+30G
+
+Drop Chance:
+75%
+
+--------------------------------
+
+ORC WARLORD
+
+HP: 45
+
+STR: 10
+
+DEF: 6
+
+Gold Reward:
+40G
+
+Drop Chance:
+75%
+
+
+========================================
+ITEM DROPS
+========================================
+
+Possible Drops:
+
+Health Potion
+
+Sleeping Gas
+
+Grenade
+
+Gold
+
+Weapon Upgrade
+
+Normal Enemy:
+20%
+
+Elite Enemy:
+75%
+
+Boss:
+100%
+
+
+========================================
+BOSS
+========================================
+
+CAVE KING
+
+HP: 70
+
+STR: 12
+
+DEF: 8
+
+Special Ability:
+
+25% chance each turn:
+
+Crushing Blow
+
+Deals double damage.
+
+
+========================================
+VICTORY
+========================================
+
+Defeat the Cave King.
+
+Rewards:
+
+500 Gold
+
+Excalibur
+
+Player escapes the dungeon.
+
+Display:
+
+"YOU ESCAPED THE DUNGEON!"
+
+Game Complete.
+
+
+========================================
+DEFEAT
+========================================
+
+If HP reaches 0:
+
+Display:
+
+"YOU DIED."
+
+Game Over.
+
+
+========================================
+TURN ORDER
+========================================
+
+Player Turn
+
+↓
+
+Choose:
+
+Attack
+
+Special
+
+Item
+
+↓
+
+Enemy Turn
+
+↓
+
+Repeat
+
+↓
+
+Victory or Death
+
+
+========================================
+MAIN GAME LOOP
+========================================
+
+Start Game
+
+↓
+
+Floor 1
+
+↓
+
+Choose Path
+
+↓
+
+Battle/Event
+
+↓
+
+Rewards
+
+↓
+
+Upgrade Stats
+
+↓
+
+Next Floor
+
+↓
+
+Floor 10
+
+↓
+
+Boss Fight
+
+↓
+
+Victory or Death
+
+
+========================================
+CORE PHILOSOPHY
+========================================
+
+Escape the Dungeon is designed around meaningful choices.
+
+Fight stronger enemies and become powerful, but risk dying.
+
+Rest and recover, but sacrifice upgrades.
+
+Spend gold now, or save for stronger weapons.
+
+Use powerful items, or save them for the boss.
+
+The player's choices determine whether they are strong enough to survive the Cave King and escape the dungeon.
