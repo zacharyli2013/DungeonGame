@@ -160,7 +160,7 @@ Use consumable items during combat.
 
 - Orc
   - HP: 20
-  - STR: 8
+  - STR: 5
   - DEF: 5
 
 **Elite Enemies**
@@ -179,7 +179,7 @@ Elite enemies are stronger and provide better rewards.
 
 - Orc Warlord
   - HP: 30
-  - STR: 5
+  - STR: 6
   - DEF: 5
 
 ## Final Boss: The Cave King
