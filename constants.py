@@ -60,7 +60,7 @@ ELITE_ENEMIES = [
 BOSS_DATA = {
     "name": "Cave King",
     "hp": 50,
-    "str": 6,
+    "str": 10,
     "def": 5,
     "gold_given": 500,
     "drop_chance": 1.0
