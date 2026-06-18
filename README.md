@@ -19,12 +19,12 @@ This is my little project to see what AI could build, and the results actually s
 Fight monsters, collect treasure, grow stronger, and uncover the secrets hidden deep within the dungeon. Every floor presents new challenges, and only the strongest adventurers will survive long enough to confront the Cave King.
 
 ## Prequisites and Controls
+Essentially, to play you must download these files. If it isn't obvious enough, running game.py would have the game. The file prompt.txt contains the prompt I used initially to code the project with AI, more info in the file. Constants have all the technical level information, tweak it as you wish but I have already made the game easier.
 
 The following libraries are needed for this game to function. Everyone usually should have these as they are built-in modules into Python. In fact, installing them with pip will result in an error.
 - random
 - time
 - os
-
 
 Menus and navigation in the game are entirely number-based.
 
