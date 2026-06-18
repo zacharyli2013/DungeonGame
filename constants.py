@@ -48,13 +48,13 @@ NORMAL_ENEMIES = [
     {"name": "Rat",             "hp": 8,  "str": 2, "def": 1, "gold_given": 5,  "drop_chance": 0.15},
     {"name": "Goblin",          "hp": 12, "str": 3, "def": 2, "gold_given": 10, "drop_chance": 0.20},
     {"name": "Skeleton",        "hp": 15, "str": 5, "def": 3, "gold_given": 15, "drop_chance": 0.20},
-    {"name": "Orc",             "hp": 20, "str": 8, "def": 5, "gold_given": 20, "drop_chance": 0.20},
+    {"name": "Orc",             "hp": 20, "str": 5, "def": 5, "gold_given": 20, "drop_chance": 0.20},
 ]
 
 ELITE_ENEMIES = [
-    {"name": "Goblin Captain",  "hp": 14, "str": 5,  "def": 3, "gold_given": 20, "drop_chance": 0.75},
-    {"name": "Skeleton Knight", "hp": 22, "str": 7,  "def": 4, "gold_given": 30, "drop_chance": 0.75},
-    {"name": "Orc Warlord",     "hp": 30, "str": 10, "def": 6, "gold_given": 40, "drop_chance": 0.75},
+    {"name": "Goblin Captain",  "hp": 14, "str": 4,  "def": 3, "gold_given": 20, "drop_chance": 0.75},
+    {"name": "Skeleton Knight", "hp": 20, "str": 5,  "def": 4, "gold_given": 30, "drop_chance": 0.75},
+    {"name": "Orc Warlord",     "hp": 30, "str": 6, "def": 5, "gold_given": 40, "drop_chance": 0.75},
 ]
 
 BOSS_DATA = {
